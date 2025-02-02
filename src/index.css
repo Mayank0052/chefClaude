@@ -65,6 +65,8 @@ main{
   width: 150px;
   font-size: 0.875rem;
   font-weight: 500;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .form > button::before{
@@ -83,6 +85,8 @@ main{
       padding: 8px 12px; 
       max-width: 100%;
       min-width: 120px;
+      box-sizing: border-box;
+      overflow: hidden;
   }
 }
 
