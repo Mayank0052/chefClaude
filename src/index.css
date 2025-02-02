@@ -79,7 +79,7 @@ main{
   color: #141413;
 }
 
-@media (max-width: 480px) { 
+@media (max-width: 580px) { 
   button {
       font-size: 14px; 
       padding: 8px 12px; 
