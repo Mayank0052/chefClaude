@@ -7,7 +7,8 @@ export default function formFunction(){
     const [ingredients, setMyIngredients] = React.useState([ ])
     const [recepie, setRecepie] = React.useState("")
     const [error, setError] = React.useState("")
-    const [loading, setLoading] = React.useState(false); 
+    const [loading, setLoading] = React.useState(false);
+    const recepieSection = React.useRef(null)
     
     function handleSubmit(event){
         event.preventDefault()//To prevent our page from being refreshed and url being changed
@@ -33,6 +34,15 @@ export default function formFunction(){
         )
         event.target.reset();
     }
+
+    React.useEffect(()=>{
+        console.log(recepieSection.current)
+        if (recepie !== "" && recepieSection) {
+            setTimeout(() => {
+                recepieSection.scrollIntoView({ behavior: 'smooth' });
+            }, 100); // Delay to ensure DOM updates
+        }
+    },[recepie])
 
     async function getRecepie() {
         setLoading(true);//Show loading message before fetching data
@@ -67,8 +77,10 @@ export default function formFunction(){
                 <button>Add ingredient</button>
             </form>
             {ingredients.length > 0 && 
-                <IngredientULList ingredients={ingredients}
-                getRecepie={getRecepie}/>}
+                <IngredientULList
+                    ref={recepieSection} 
+                    ingredients={ingredients}
+                    getRecepie={getRecepie}/>}
             {/* Show loading message when fetching */}
             {loading ? (<p className='loading-message'>Fetching recipe, please wait...</p>) : error ? (
                 <p className="error-message">{error}</p>
