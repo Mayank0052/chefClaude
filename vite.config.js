@@ -5,7 +5,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: process.env.PORT || 3000,  // Render ke liye dynamic port
-    host: true,  // Yeh ensure karega ki app sabhi network interfaces pe listen kare
+    port: process.env.PORT || 3000,  // Ensure the port is dynamic for Render
+    host: true,  // Make sure the app listens to all network interfaces
+  },
+  preview: {
+    allowedHosts: ['chefclaude-j015.onrender.com', 'localhost'],  // Add Render URL and localhost
   },
 })
