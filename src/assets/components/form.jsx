@@ -15,7 +15,7 @@ export default function formFunction(){
         const formData = new FormData(event.currentTarget)
         const newIngredient = formData.get("ingredient").trim()//to remove whitespace
         console.log(newIngredient)
-        ingredients[ingredients.length] = newIngredient;
+        ingredients.push(newIngredient);
         console.log(ingredients)
         console.log(Object.fromEntries(formData))
 
@@ -67,7 +67,7 @@ export default function formFunction(){
             >
             <input
                 type="text" 
-                placeholder="e.g. oregnao"
+                placeholder="e.g. onion"
                 aria-label="Add ingredient"
                 name="ingredient"
                 required

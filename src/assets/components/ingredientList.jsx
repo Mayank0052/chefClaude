@@ -6,7 +6,7 @@ export default function ingredientList(props){
 
     return (
         <div id="lower-container">
-                <h2>Ingredients on hand:</h2>
+                <h2>Ingredients in hand:</h2>
                 <ul className='ingredient-list' aria-live="polite">
                     {ingredientListItems}
                 </ul>
